@@ -71,7 +71,7 @@ for _ in range(n_post):
     co = requests.get(link).text
     sub_title = get_title(co)
     print(title + ' ' + sub_title)
-    text = f'{title} {sub_title}（来源：Github/ApacheCN） {link}'
+    text = f'『{title}』{sub_title}（来源：Github/@ApacheCN ） {link}'
     
     post_str = f'location=page_100505_manage&text={urllib.parse.quote(text)}&style_type=1&pdetail=1005052216356441&isReEdit=false&rank=0&addtime={dt_str}&pub_type=dialog&_t=0'
     ts = int(time.time() * 1000)
