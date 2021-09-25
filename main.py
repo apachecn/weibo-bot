@@ -72,7 +72,7 @@ def main():
     now = dt.datetime.now(tz)
 
     for _ in range(n_post):
-        d = random.randint(0, 6)
+        d = random.randint(0, 5)
         hr = random.randint(0, 23)
         min = random.randint(0, 59)
         dt_ = now + dt.timedelta(days=d, hours=hr, minutes=min)
