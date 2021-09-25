@@ -72,9 +72,10 @@ def main():
     now = dt.datetime.now(tz)
 
     for _ in range(n_post):
+        d = random.randint(0, 6)
         hr = random.randint(0, 23)
         min = random.randint(0, 59)
-        dt_ = now + dt.timedelta(hours=hr, minutes=min)
+        dt_ = now + dt.timedelta(days=d, hours=hr, minutes=min)
         dt_str = dt_.strftime('%Y-%m-%d %H:%M')
         
         repo = random.choice(repos)
@@ -86,9 +87,9 @@ def main():
         link = get_random_ch(co)
         co = requests.get(link).text
         sub_title = get_title(co)
-        text = f'『{title}』{sub_title}（来源：Gitee/@ApacheCN ） {link}' \
+        text = f'『{title}』{sub_title}（来源：Gitee/@ApacheCN ）{link}' \
             .replace('https://', '')
-        print(text)
+        print(f'[{dt_str}] {text}')
 
         post_str = f'location=page_100505_manage&text={urllib.parse.quote(text)}&style_type=1&pdetail=1005052216356441&isReEdit=false&rank=0&addtime={dt_str}&pub_type=dialog&_t=0'
         ts = int(time.time() * 1000)
